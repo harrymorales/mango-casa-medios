@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC32D"/>
+      <stop offset="50%" stop-color="#FF4DA6"/>
+      <stop offset="100%" stop-color="#B86EFF"/>
+    </linearGradient>
+  </defs>
+
+  <text x="0" y="100"
+        font-family="Montserrat, Arial"
+        font-size="72"
+        font-weight="800"
+        fill="#ffffff">
+        M
+  </text>
+
+  <text x="70" y="100"
+        font-family="Montserrat, Arial"
+        font-size="72"
+        font-weight="800"
+        fill="url(#grad)">
+        A
+  </text>
+
+  <text x="140" y="100"
+        font-family="Montserrat, Arial"
+        font-size="72"
+        font-weight="800"
+        fill="#ffffff">
+        N
+  </text>
+
+  <text x="210" y="100"
+        font-family="Montserrat, Arial"
+        font-size="72"
+        font-weight="800"
+        fill="#ffffff">
+        G
+  </text>
+
+  <text x="280" y="100"
+        font-family="Montserrat, Arial"
+        font-size="72"
+        font-weight="800"
+        fill="#ffffff">
+        O
+  </text>
+
+  <text x="0" y="140"
+        font-family="Montserrat, Arial"
+        font-size="24"
+        letter-spacing="6"
+        fill="#ffffff">
+        CASA DE MEDIOS
+  </text>
+</svg>
