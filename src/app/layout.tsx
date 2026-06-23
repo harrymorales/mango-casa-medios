@@ -3,7 +3,7 @@ import "./globals.css";
 export const metadata = {
   title: "Mango Casa de Medios",
   description:
-    "Producción audiovisual, eventos y experiencias tecnológicas.",
+    "Producción audiovisual, eventos corporativos y estrategias de comunicación.",
 };
 
 export default function RootLayout({

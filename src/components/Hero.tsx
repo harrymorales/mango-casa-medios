@@ -1,116 +1,65 @@
+"use client";
+
+import { ArrowRight, Play } from "lucide-react";
+
 export default function Hero() {
-
   return (
-
     <section
       id="inicio"
-      className="relative h-screen overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
+      {/* Fondo */}
 
-      <img
-        src="/images/hero.png"
-        alt="Producción audiovisual"
-        className="
-          absolute
-          inset-0
-          w-full
-          h-full
-          object-cover
-        "
-      />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#081223] via-black to-[#FF7A00]/20" />
 
-      <div className="absolute inset-0 bg-black/65"></div>
+      {/* Glow */}
 
-      <div className="relative z-10 h-full flex items-center">
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[120px]" />
 
-        <div className="max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
 
-          <div className="max-w-2xl">
+        <div className="max-w-4xl">
 
-            <h1 className="
-              text-6xl
-              md:text-6xl
-              font-extrabold
-              leading-tight
-            ">
+          <span className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-sm">
+            Producción Audiovisual • Eventos • Tecnología
+          </span>
 
-              CREAMOS
+          <h1 className="mt-8 text-5xl md:text-7xl font-black leading-tight">
+            Creamos
+            <span className="block text-yellow-400">
+              experiencias
+            </span>
+            que conectan
+          </h1>
 
-              <br />
+          <p className="mt-8 text-xl text-gray-300 max-w-2xl">
+            Estrategias de comunicación, producción audiovisual,
+            eventos corporativos y experiencias tecnológicas.
+          </p>
 
-              <span className="
-                bg-gradient-to-r
-                from-yellow-400
-                via-pink-500
-                to-purple-500
-                bg-clip-text
-                text-transparent
-              ">
-                EXPERIENCIAS
-              </span>
+          <div className="flex flex-col md:flex-row gap-4 mt-10">
 
-              <br />
+            <a
+              href="#contacto"
+              className="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold inline-flex items-center gap-2"
+            >
+              Solicitar Cotización
+              <ArrowRight size={18} />
+            </a>
 
-              QUE SE SIENTEN.
-
-            </h1>
-
-            <p className="
-              mt-8
-              text-gray-200
-              text-xl
-              leading-relaxed
-            ">
-              Producción audiovisual,
-              streaming,
-              eventos híbridos
-              y experiencias tecnológicas
-              que conectan personas y marcas.
-            </p>
-
-            <div className="mt-10 flex gap-4">
-
-              <a
-                href="#contacto"
-                className="
-                  bg-yellow-400
-                  text-black
-                  px-8
-                  py-4
-                  rounded-full
-                  font-semibold
-                  hover:scale-105
-                  transition
-                "
-              >
-                SOLICITAR COTIZACIÓN
-              </a>
-
-              <a
-                href="#portafolio"
-                className="
-                  border
-                  border-white
-                  text-white
-                  px-8
-                  py-4
-                  rounded-full
-                  hover:bg-white
-                  hover:text-black
-                  transition
-                "
-              >
-                VER PROYECTOS
-              </a>
-
-            </div>
+            <a
+              href="#portafolio"
+              className="border border-white/20 px-8 py-4 rounded-full inline-flex items-center gap-2"
+            >
+              <Play size={18} />
+              Ver Portafolio
+            </a>
 
           </div>
 
         </div>
 
       </div>
-
     </section>
   );
 }
