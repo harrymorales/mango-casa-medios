@@ -4,22 +4,39 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background: #081223;
-  color: white;
+:root {
+  --mango-burgundy: #5F1A17;
+  --mango-olive: #3D4436;
+  --mango-beige: #ECDAB7;
+  --mango-black: #111111;
+  --mango-white: #ffffff;
 }
 
-:root {
-  --mango-primary: #ffb100;
-  --mango-orange: #ff7a00;
-  --mango-dark: #081223;
+body {
+  background: #ffffff;
+  color: #111111;
+  overflow-x: hidden;
 }
 
 .section-title {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 700;
 }
 
 .section-subtitle {
-  color: #9ca3af;
+  color: #bfbfbf;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  width: max-content;
+  animation: marquee 30s linear infinite;
 }

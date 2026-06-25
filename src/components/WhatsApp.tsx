@@ -1,13 +1,36 @@
+"use client";
+
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsApp() {
   return (
     <a
-      href="https://wa.me/573001234567"
+      href="https://wa.me/573188273153"
       target="_blank"
-      className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg z-50"
+      rel="noopener noreferrer"
+      className="
+        fixed
+        bottom-8
+        right-8
+        z-50
+        flex
+        items-center
+        gap-3
+        bg-[#25D366]
+        text-white
+        px-5
+        py-4
+        rounded-full
+        shadow-2xl
+        hover:scale-105
+        transition
+        animate-pulse
+      "
     >
-      <MessageCircle size={28} />
+      <MessageCircle size={24} />
+      <span className="hidden md:block font-semibold">
+        Hablemos
+      </span>
     </a>
   );
 }

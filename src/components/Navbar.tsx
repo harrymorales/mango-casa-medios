@@ -1,155 +1,219 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const links = [
-    { name: "Inicio", href: "#inicio" },
-    { name: "Quiénes Somos", href: "#nosotros" },
-    { name: "Servicios", href: "#servicios" },
-    { name: "Proceso", href: "#proceso" },
-    { name: "Portafolio", href: "#portafolio" },
-    { name: "Clientes", href: "#clientes" },
-    { name: "Contacto", href: "#contacto" },
+    { label: "Inicio", href: "#inicio" },
+    { label: "Nosotros", href: "#nosotros" },
+    { label: "Servicios", href: "#servicios" },
+    { label: "Proceso", href: "#proceso" },
+    { label: "Portafolio", href: "#portafolio" },
+    { label: "Clientes", href: "#clientes" },
+    { label: "Contacto", href: "#contacto" },
   ];
 
   return (
     <header
-      className="
-      fixed
-      top-0
-      left-0
-      w-full
-      z-50
-      bg-black/20
-      backdrop-blur-xl
-      border-b
-      border-white/10
-      shadow-lg
-      shadow-black/20
-      "
+      className={`
+        fixed
+        top-0
+        left-0
+        w-full
+        z-50
+        transition-all
+        duration-500
+
+        ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-xl border-b border-[#ECDAB7] shadow-lg"
+            : "bg-transparent"
+        }
+      `}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div
+        className={`
+          max-w-7xl
+          mx-auto
+          px-6
+          flex
+          items-center
+          justify-between
+          transition-all
+          duration-500
+
+          ${scrolled ? "py-3" : "py-5"}
+        `}
+      >
 
         {/* LOGO */}
 
-        <a
-          href="#inicio"
-          className="flex items-center gap-3"
-        >
-          <Image
-            src="/images/logo.svg"
+        <a href="#inicio" className="flex items-center">
+          <img
+            src="/images/logo.png"
             alt="Mango Casa de Medios"
-            width={180}
-            height={50}
-            priority
-            className="h-10 w-auto"
+            className={`
+              transition-all
+              duration-500
+
+              ${
+                scrolled
+                  ? "h-12 md:h-14"
+                  : "h-14 md:h-16"
+              }
+            `}
           />
         </a>
 
-        {/* MENU DESKTOP */}
+        {/* DESKTOP */}
 
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+        <nav className="hidden lg:flex items-center gap-8">
 
-          {links.map((link) => (
+          {links.map((item) => (
             <a
-              key={link.name}
-              href={link.href}
-              className="
-                text-white
-                hover:text-yellow-400
+              key={item.label}
+              href={item.href}
+              className={`
+                font-medium
                 transition-all
                 duration-300
-              "
+
+                ${
+                  scrolled
+                    ? "text-[#3D4436] hover:text-[#5F1A17]"
+                    : "text-white hover:text-[#ECDAB7]"
+                }
+              `}
             >
-              {link.name}
+              {item.label}
             </a>
           ))}
 
           <a
             href="#contacto"
-            className="
+            className={`
               ml-2
-              px-5
-              py-2
+              px-6
+              py-3
               rounded-full
-              bg-yellow-400
-              text-black
               font-semibold
-              hover:scale-105
               transition-all
               duration-300
-            "
+              hover:scale-105
+
+              ${
+                scrolled
+                  ? "bg-[#5F1A17] text-white hover:bg-[#3D4436]"
+                  : "bg-[#ECDAB7] text-[#5F1A17] hover:bg-white"
+              }
+            `}
           >
-            Cotizar
+            Cotizar Proyecto
           </a>
 
         </nav>
 
-        {/* BOTON MOVIL */}
+        {/* MOBILE BUTTON */}
 
         <button
-          aria-label="Abrir menú"
+          className={`
+            lg:hidden
+            transition-all
+
+            ${
+              scrolled
+                ? "text-[#3D4436]"
+                : "text-white"
+            }
+          `}
           onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
         >
           {open ? <X size={30} /> : <Menu size={30} />}
         </button>
 
       </div>
 
-      {/* MENU MOVIL */}
+      {/* MOBILE MENU */}
 
       {open && (
         <div
-          className="
-          md:hidden
-          bg-black/95
-          backdrop-blur-xl
-          border-t
-          border-white/10
-          "
-        >
-          <div className="px-6 py-6 flex flex-col gap-5">
+          className={`
+            lg:hidden
+            backdrop-blur-xl
+            border-t
 
-            {links.map((link) => (
+            ${
+              scrolled
+                ? "bg-white border-[#ECDAB7]"
+                : "bg-black/90 border-white/10"
+            }
+          `}
+        >
+
+          <div className="flex flex-col p-6 gap-5">
+
+            {links.map((item) => (
               <a
-                key={link.name}
-                href={link.href}
+                key={item.label}
+                href={item.href}
                 onClick={() => setOpen(false)}
-                className="
-                  text-white
-                  hover:text-yellow-400
-                  transition
-                "
+                className={`
+                  font-medium
+                  transition-all
+
+                  ${
+                    scrolled
+                      ? "text-[#3D4436] hover:text-[#5F1A17]"
+                      : "text-white hover:text-[#ECDAB7]"
+                  }
+                `}
               >
-                {link.name}
+                {item.label}
               </a>
             ))}
 
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
-              className="
+              className={`
                 mt-2
-                bg-yellow-400
-                text-black
                 text-center
                 py-3
                 rounded-full
                 font-semibold
-              "
+                transition-all
+
+                ${
+                  scrolled
+                    ? "bg-[#5F1A17] text-white"
+                    : "bg-[#ECDAB7] text-[#5F1A17]"
+                }
+              `}
             >
               Solicitar Cotización
             </a>
 
           </div>
+
         </div>
       )}
+
     </header>
   );
 }

@@ -1,65 +1,275 @@
 "use client";
 
-import { ArrowRight, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+
 
 export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="
+        relative
+        min-h-screen
+        flex
+        items-center
+        overflow-hidden
+      "
     >
-      {/* Fondo */}
+      {/* FONDO */}
 
-      <div className="absolute inset-0 bg-gradient-to-br from-[#081223] via-black to-[#FF7A00]/20" />
+      <div
+        className="
+          absolute
+          inset-0
+          bg-cover
+          bg-center
+          scale-105
+        "
+        style={{
+          backgroundImage:
+            "url('/images/hero-premium.jpg')",
+        }}
+      />
 
-      {/* Glow */}
+      {/* OVERLAY */}
 
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 bg-white/75" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      {/* DEGRADADO MANGO */}
 
-        <div className="max-w-4xl">
+      <div
+        className="
+          absolute
+          top-0
+          right-0
+          w-[700px]
+          h-[700px]
+          rounded-full
+          bg-[#ECDAB7]/40
+          blur-3xl
+        "
+      />
 
-          <span className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-sm">
-            Producción Audiovisual • Eventos • Tecnología
-          </span>
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          w-[500px]
+          h-[500px]
+          rounded-full
+          bg-[#5F1A17]/10
+          blur-3xl
+        "
+      />
 
-          <h1 className="mt-8 text-5xl md:text-7xl font-black leading-tight">
-            Creamos
-            <span className="block text-yellow-400">
-              experiencias
+      {/* CONTENIDO */}
+
+      <div
+        className="
+          relative
+          z-10
+          max-w-7xl
+          mx-auto
+          px-6
+          w-full
+          pt-32
+        "
+      >
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* TEXTO */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 60,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+          >
+            <span
+              className="
+                uppercase
+                tracking-[5px]
+                text-[#5F1A17]
+                font-medium
+              "
+            >
+              Productora Audiovisual · Eventos · Comunicación
             </span>
-            que conectan
-          </h1>
 
-          <p className="mt-8 text-xl text-gray-300 max-w-2xl">
-            Estrategias de comunicación, producción audiovisual,
-            eventos corporativos y experiencias tecnológicas.
-          </p>
-
-          <div className="flex flex-col md:flex-row gap-4 mt-10">
-
-            <a
-              href="#contacto"
-              className="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold inline-flex items-center gap-2"
+            <h1
+              className="
+                mt-6
+                text-5xl
+                md:text-7xl
+                font-bold
+                leading-tight
+                text-[#111111]
+              "
             >
-              Solicitar Cotización
-              <ArrowRight size={18} />
-            </a>
+              Convertimos
+              <br />
+              ideas ambiciosas
+              <br />
+              en experiencias
+              <span className="text-[#5F1A17]">
+                {" "}
+                memorables
+              </span>
+            </h1>
 
-            <a
-              href="#portafolio"
-              className="border border-white/20 px-8 py-4 rounded-full inline-flex items-center gap-2"
+            <p
+              className="
+                mt-8
+                text-lg
+                text-gray-700
+                max-w-xl
+                leading-8
+              "
             >
-              <Play size={18} />
-              Ver Portafolio
-            </a>
+              Producción audiovisual, eventos
+              corporativos y estrategias de
+              comunicación que conectan personas,
+              marcas y territorios.
+            </p>
 
-          </div>
+            {/* BOTONES */}
+
+            <div className="flex flex-wrap gap-4 mt-10">
+
+              <a
+                href="#contacto"
+                className="
+                  bg-[#5F1A17]
+                  text-white
+                  px-8
+                  py-4
+                  rounded-full
+                  font-semibold
+                  hover:bg-[#3D4436]
+                  transition-all
+                  duration-300
+                  hover:scale-105
+                "
+              >
+                Hablemos de tu proyecto
+              </a>
+
+              <a
+                href="https://wa.me/573188273153"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  border
+                  border-[#3D4436]
+                  text-[#3D4436]
+                  px-8
+                  py-4
+                  rounded-full
+                  font-semibold
+                  hover:bg-[#3D4436]
+                  hover:text-white
+                  transition-all
+                  duration-300
+                "
+              >
+                WhatsApp
+              </a>
+
+            </div>
+
+          </motion.div>
+
+          {/* ESTADÍSTICAS */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 80,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 1,
+              delay: 0.2,
+            }}
+            className="
+              grid
+              grid-cols-2
+              gap-6
+            "
+          >
+
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
+              <h3 className="text-5xl font-bold text-[#5F1A17]">
+                <CountUp end={10} duration={3} />+
+              </h3>
+
+              <p className="mt-2 text-gray-600">
+                Años de experiencia
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
+              <h3 className="text-5xl font-bold text-[#5F1A17]">
+                <CountUp end={250} duration={3} />+
+              </h3>
+
+              <p className="mt-2 text-gray-600">
+                Proyectos realizados
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
+              <h3 className="text-5xl font-bold text-[#5F1A17]">
+                <CountUp end={50} duration={3} />+
+              </h3>
+
+              <p className="mt-2 text-gray-600">
+                Marcas atendidas
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
+              <h3 className="text-5xl font-bold text-[#5F1A17]">
+                <CountUp end={8} duration={3} />+
+              </h3>
+
+              <p className="mt-2 text-gray-600">
+                Ciudades impactadas
+              </p>
+            </div>
+
+          </motion.div>
 
         </div>
-
       </div>
+
+      {/* SCROLL INDICATOR */}
+
+      <div
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          -translate-x-1/2
+          text-[#5F1A17]
+          animate-bounce
+        "
+      >
+        ↓
+      </div>
+
     </section>
   );
 }
